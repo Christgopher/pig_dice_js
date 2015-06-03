@@ -1,0 +1,49 @@
+#play-game {
+  display: none;
+}
+
+#add-players {
+  display: none;
+}
+
+.red_die0 {
+  content:url("images/Die.jpg");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die1 {
+  content:url("images/dice-1.png");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die2 {
+  content:url("images/dice-2.png");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die3 {
+  content:url("images/dice-3.png");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die4 {
+  content:url("images/dice-4.png");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die5 {
+  content:url("images/dice-5.png");
+  height: 100px;
+  width: 100px;
+}
+
+.red_die6 {
+  content:url("images/dice-6.png");
+  height: 100px;
+  width: 100px;
+}
