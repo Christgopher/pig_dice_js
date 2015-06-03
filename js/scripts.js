@@ -52,6 +52,7 @@ $(function(){
       var inputName = $(this).find("input.player-name").val();
       var newPlayer = new Player(inputName);
       players.push(newPlayer);
+      $("#score-list").append('<div id="player' + players.indexOf(newPlayer) + '"><li>' + newPlayer.score + " : " + newPlayer.playerName + "</li></div>");
     });
     $("#add-players").hide();
     $("#play-game").show();
@@ -93,7 +94,10 @@ $(function(){
   $("#hold").click(function(event) {
     event.preventDefault;
     holdDie(dieRoll);
+    // var oldScore = currentPlayer.score
     currentPlayer.addToScore(tally);
+
+    // $("#player" + (players.indexOf(currentPlayer)).toString).replace(oldScore, currentPlayer.score)
     $(".current-player-score").text(currentPlayer.score);
     tally = 0;
     dieRoll = 0;
