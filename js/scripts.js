@@ -22,9 +22,19 @@ function changeDie(dieRoll, lastDieRoll) {
 
 function holdDie(dieRoll) {
   $("#roll-die").addClass("rotateOut");
-  setTimeout(function(){$("#roll-die").removeClass("rotateOut red_die" + dieRoll.toString())}, 1000);
+  setTimeout(function() {
+    if (dieRoll === 0) {
+      $("#roll-die").removeClass("rotateOut")
+      $("#roll-die").addClass("red_die0 rotateIn");
+    } else {
+      $("#roll-die").removeClass("rotateOut red_die" + dieRoll.toString())
+    }
+  }, 1000);
   $("#roll-die").addClass("red_die0 rotateIn");
-  setTimeout(function(){$("#roll-die").removeClass("rotateIn")}, 2000);
+
+  setTimeout(function() {
+    $("#roll-die").removeClass("rotateIn")
+  }, 2000);
 }
 
 $(function(){
@@ -39,10 +49,10 @@ $(function(){
     var number = parseInt(choice.options[choice.selectedIndex].value);
     for (var i = 0; i < number; i++){
       $('#player-names').append('<div class="new-player">'+
-      '<input type="text" class="player-name" placeholder="Player Name"/><br><br>');
+      '<input type="text" class="player-name" placeholder="Player Name" autofocus/><br><br>');
     }
-    $("#player-select").hide();
-    $("#add-players").show();
+    $("#player-select").fadeOut();
+    $("#add-players").delay(500).fadeIn();
   });
 
   // CREATE NEW PLAYERS WITH THE INPUT NAMES
@@ -54,20 +64,19 @@ $(function(){
       players.push(newPlayer);
       $("#score-list").append('<div id="player' + players.indexOf(newPlayer) + '"><li>' + newPlayer.score + " : " + newPlayer.playerName + "</li></div>");
     });
-    $("#add-players").hide();
-    $("#play-game").show();
+    $("#add-players").fadeOut();
+    $("#play-game").delay(500).fadeIn();
     currentPlayer = players[playerIndex];
     $(".current-player-name").text(currentPlayer.playerName);
     $(".current-player-score").text(currentPlayer.score);
 
   });
 
-
   // GET RANDOM D6 ROLL RESULT. IF 1 IS ROLLED GO TO NEXT PLAYER
   var tally = 0;
   var dieRoll = 0;
   var lastDieRoll = 0;
-  $("#roll-die").click(function(event) {
+  $("#roll").click(function(event) {
     lastDieRoll = dieRoll;
     dieRoll = Math.floor(Math.random()*(6)+1);
     timedDice(dieRoll, lastDieRoll);
@@ -84,15 +93,16 @@ $(function(){
       $(".current-player-score").text(currentPlayer.score);
 
     }
-
+    $("#rolled").fadeIn();
     $("#tally").text(tally);
     $("#dieRoll").text(dieRoll);
   });
 
-
   // SAVE CURRENT SCORE AND GO TO NEXT PLAYER
   $("#hold").click(function(event) {
     event.preventDefault;
+    $("#rolled").fadeOut();
+
     holdDie(dieRoll);
     // var oldScore = currentPlayer.score
     currentPlayer.addToScore(tally);
@@ -110,6 +120,11 @@ $(function(){
     $(".current-player-score").text(currentPlayer.score);
     $("#tally").text(tally);
     $("#dieRoll").text(dieRoll);
-  });
 
+    // Updates player scores
+    $("ul#score-list").empty();
+    players.forEach(function(player) {
+      $("#score-list").append("<li>" + player.score + ":" + player.playerName + "</li>")
+    })
+  });
 });

@@ -9,11 +9,16 @@
     <title>Nuclear Pigs of Death</title>
   </head>
   <body>
-    <div class="container">
 
+    <div id="top-space"><h1>Pig Dice</h1></div>
+
+    <img id="pig-pic" src="css/images/pig-pic.png" alt="pig">
+    <div class="container">
       <div id="select-players">
         <br><br>
         <div id="player-select">
+
+          <br>
           <form id="select-action">
             <label for="number-players">How many players?</label>
             <select id="number-players">
@@ -22,30 +27,34 @@
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
-            </select>
+            </select> &nbsp;
             <button type="submit" class="btn btn-warning" id="submit-player-select"> Select </button>
           </form>
+
         </div>
         <form id="add-players">
           <div id="player-names"></div>
           <button type="submit" class="btn btn-info" id="add-players-btn">Start Game</button>
         </form>
-
       </div>
-
       <div id="play-game">
         <div id="game">
-          <h1>Roll the die. IF YOU DARE!</h1>
+          <h2><span class="current-player-name"></span>'s turn! </h2>
+          <br>
           <span id="roll-die" class="btn animated red_die0"></span>
-          <h2>You rolled a: <span id="dieRoll"></span></h2>
-          <p></p>
-          <h2>Current Running Tally: <span id="tally"></span></h2>
-          <h2><span class="current-player-name"></span>'s Score: <span class="current-player-score"></span></h2>
-          <span class="btn btn-primary" id="hold">Hold</span>
-        </div>
+          <br>
+          &nbsp;<span class="btn btn-primary" id="hold">Hold</span> &nbsp;&nbsp;
+          &nbsp;<span class="btn btn-primary" id="roll">Roll</span>
 
+          <p></p>
+          <br>
+          <br>
+          <h4>Current Running Tally: <span id="tally"></span></h4>
+
+
+        </div>
         <div id="scores">
-          <ul id="score-list"></ul>
+          <ul id="score-list">
         </div>
 
       </div>

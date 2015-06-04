@@ -1,3 +1,7 @@
+.container {
+  margin-top: 100px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
 #play-game {
   display: none;
 }
@@ -8,44 +12,44 @@
 
 .red_die0 {
   content:url("images/Die.jpg");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die1 {
   content:url("images/dice-1.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die2 {
   content:url("images/dice-2.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die3 {
   content:url("images/dice-3.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die4 {
   content:url("images/dice-4.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die5 {
   content:url("images/dice-5.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .red_die6 {
   content:url("images/dice-6.png");
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 #scores {
@@ -54,4 +58,56 @@
 
 #game {
   float: left;
+}
+
+#pig-pic {
+  float: right;
+  position:fixed;
+  top: 300px;
+  right: 200px;
+}
+
+#top-space h1 {
+  font-weight: bold;
+  font-size: 70px;
+  width: 50%;
+  margin: 0 auto;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+
+
+}
+
+#top-space {
+  position:fixed;
+  top:0;
+  width:100%;
+  height: 95px;
+  background-color: pink;
+  border-bottom: 5px solid;
+}
+
+
+#scores {
+  text-align: center;
+  margin-right: 510px;
+  margin-bottom: 220px;
+  font-size: 30px;
+  background-color: #FFFFE0;
+  padding: 7px;
+  border: 2px solid;
+
+}
+
+ul {
+  list-style-type: none;
+  padding:5px 0;
+  position: relative;
+  down: 170px;
+}
+
+#roll-die {
+  margin: 20px;
+}
+#rolled {
+  display: none;
 }
